@@ -46,4 +46,17 @@ public:
 	/// <param name="otherPosition"></param>
 	/// <returns></returns>
 	double distanceTo(Position* otherPosition);
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="otherPosition"></param>
+	/// <returns></returns>
+	Position* subtract(Position* otherPosition);
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
+	Position* normalize();
 };

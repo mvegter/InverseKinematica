@@ -30,3 +30,20 @@ double Position::distanceTo(Position* otherPosition) {
 		pow(otherPosition->getY() - getY(), 2) +
 		pow(otherPosition->getZ() - getZ(), 2) * 1.0);
 }
+
+Position* Position::subtract(Position* otherPosition) {
+	return new Position(getX() - otherPosition->getX(),
+		getY() - otherPosition->getY(),
+		getZ() - otherPosition->getZ());
+}
+
+Position* Position::normalize() {
+	float len = sqrt(getX() * getX() + getY() * getY() + getZ() * getZ());
+
+	if (len != 0.)
+	{
+		return new Position(getX() / len, getY() / len, getZ() / len);
+	}
+
+	return new Position(getX(), getY(), getZ());
+}
