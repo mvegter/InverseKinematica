@@ -2,10 +2,13 @@
 //
 
 #include <iostream>
+#include "Phantomx.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Phantomx phantomx;
+
+    phantomx.printSegments();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -139,7 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArmSegment.cpp" />
     <ClCompile Include="InverseKinematica.cpp" />
+    <ClCompile Include="Phantomx.cpp" />
+    <ClCompile Include="Position.cpp" />
+    <ClCompile Include="RobotArm.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArmSegment.h" />
+    <ClInclude Include="Phantomx.h" />
+    <ClInclude Include="Position.h" />
+    <ClInclude Include="RobotArm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
