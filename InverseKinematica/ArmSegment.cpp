@@ -25,6 +25,14 @@ ArmSegment* ArmSegment::getBase() {
 	return m_base;
 }
 
+Position* ArmSegment::getBasePosition() {
+	if (getBase() == nullptr) {
+		return new Position(0, 0, 0);
+	}
+
+	return getBase()->getPosition();
+}
+
 double ArmSegment::getAngle() {
 	return m_angle;
 }
@@ -47,4 +55,8 @@ double ArmSegment::getX() {
 
 double ArmSegment::getY() {
 	return getPosition()->getY();
+}
+
+void ArmSegment::moveTo(Position* targetPosition, Position* clawPosition) {
+	// TODO: implement
 }

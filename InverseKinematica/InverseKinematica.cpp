@@ -8,7 +8,7 @@ int main()
 {
     Phantomx phantomx;
 
-    phantomx.printSegments();
+    phantomx.moveTo(new Position(10, 20));
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

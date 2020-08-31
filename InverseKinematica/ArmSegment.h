@@ -19,6 +19,12 @@ protected:
 	/// 
 	/// </summary>
 	/// <returns></returns>
+	Position* getBasePosition();
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
 	double getTotalAngle();
 
 public:
@@ -59,4 +65,11 @@ public:
 	/// </summary>
 	/// <returns></returns>
 	double getY();
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="targetPosition"></param>
+	/// <param name="clawPosition"></param>
+	void moveTo(Position* targetPosition, Position* clawPosition);
 };

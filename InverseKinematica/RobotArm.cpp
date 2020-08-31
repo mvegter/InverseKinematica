@@ -14,3 +14,30 @@ void RobotArm::printSegments() {
 		std::cout << "\n";
 	}
 }
+
+ArmSegment* RobotArm::getLastSegment() {
+	return m_segments[m_segments.size() - 1];
+}
+
+void RobotArm::moveTo(Position* targetPosition) {
+	int runs = 0;
+
+	std::cout << "Run #" << runs << "\n";
+	std::cout << "  Distance: " << getLastSegment()->getPosition()->distanceTo(targetPosition) << "\n";
+	std::cout << "\n";
+	printSegments();
+
+	int i = m_segments.size();
+	while (++runs < 10 && getLastSegment()->getPosition()->distanceTo(targetPosition) > 0) {
+		if (--i < 0) {
+			i = m_segments.size() - 1;
+		}
+
+		m_segments[i]->moveTo(targetPosition, getLastSegment()->getPosition());
+	}
+
+	std::cout << "Run #" << runs << "\n";
+	std::cout << "  Distance: " << getLastSegment()->getPosition()->distanceTo(targetPosition) << "\n";
+	std::cout << "\n";
+	printSegments();
+}

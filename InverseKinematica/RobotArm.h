@@ -7,6 +7,12 @@ class RobotArm
 protected:
 	std::vector<ArmSegment*> m_segments;
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
+	ArmSegment* getLastSegment();
+
 public:
 	/// <summary>
 	/// 
@@ -17,4 +23,10 @@ public:
 	/// 
 	/// </summary>
 	void printSegments();
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="targetPosition"></param>
+	void moveTo(Position* targetPosition);
 };
