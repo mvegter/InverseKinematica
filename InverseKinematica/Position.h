@@ -4,6 +4,7 @@ class Position
 private:
 	double m_x;
 	double m_y;
+	double m_z;
 
 public:
 	/// <summary>
@@ -16,6 +17,14 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
+	/// <param name="x"></param>
+	/// <param name="y"></param>
+	/// <param name="z"></param>
+	Position(double x, double y, double z);
+
+	/// <summary>
+	/// 
+	/// </summary>
 	/// <returns></returns>
 	double getX();
 
@@ -24,4 +33,17 @@ public:
 	/// </summary>
 	/// <returns></returns>
 	double getY();
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
+	double getZ();
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="otherPosition"></param>
+	/// <returns></returns>
+	double distanceTo(Position* otherPosition);
 };
