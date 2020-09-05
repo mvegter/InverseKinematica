@@ -21,6 +21,12 @@ protected:
 	/// <returns></returns>
 	double getTotalAngle();
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="angle"></param>
+	void transformAngle(double angle);
+
 public:
 	/// <summary>
 	/// 

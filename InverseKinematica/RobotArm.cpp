@@ -37,7 +37,7 @@ void RobotArm::moveTo(Position* targetPosition) {
 	printSegments();
 
 	int i = m_segments.size();
-	while (++runs < 100000 && getLastSegment()->getPosition()->distanceTo(targetPosition) > 0.1) {
+	while (++runs < (m_segments.size() * 10000) && getLastSegment()->getPosition()->distanceTo(targetPosition) > 0.1) {
 		if (--i < 0) {
 			i = m_segments.size() - 1;
 		}

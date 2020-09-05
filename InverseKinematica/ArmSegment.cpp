@@ -17,8 +17,8 @@ Position* ArmSegment::getPosition() {
 		baseY = getBase()->getPosition()->getY();
 	}
 
-	double posX = baseX + (getLength() * sin(getTotalAngle() * (3.14 / 180)));
-	double posY = baseY + (getLength() * cos(getTotalAngle() * (3.14 / 180)));
+	double posX = baseX + (getLength() * sin(getTotalAngle() * (PI / 180.0)));
+	double posY = baseY + (getLength() * cos(getTotalAngle() * (PI / 180.0)));
 
 	return new Position(posX, posY);
 }
@@ -37,6 +37,21 @@ Position* ArmSegment::getBasePosition() {
 
 double ArmSegment::getAngle() {
 	return m_angle;
+}
+
+void ArmSegment::transformAngle(double angle) {
+	double damping = 30.0;
+	double freedom = 90.0;
+
+	// No need to do anything
+	if (angle == 0) return;
+
+	// Damping the diff
+	angle = fmin(damping, fmax(-1.0 * damping, angle));
+	m_angle += angle;
+
+	// Freedom
+	m_angle = fmin(freedom, fmax(-1.0 * freedom, m_angle));
 }
 
 double ArmSegment::getTotalAngle() {
@@ -64,13 +79,18 @@ void ArmSegment::moveTo(Position* targetPosition, Position* clawPosition) {
 	Position* targetVector = targetPosition->subtract(getBasePosition())->normalize();
 
 	double cosAngle = Position::DotProduct(targetVector, curVector);
-	if (cosAngle < 0.99999) {
-		Position* crossResult = Position::CrossProduct(targetVector, curVector);
-		if (crossResult->getZ() > 0.0f) {
-			m_angle += acos(cosAngle) * 180.0 / PI;
-		}
-		else if (crossResult->getZ() < 0.0f) {
-			m_angle -= acos(cosAngle) * 180.0 / PI;
-		}
+	if (!(cosAngle < 0.99999)) {
+		return;
 	}
+
+	Position* crossResult = Position::CrossProduct(targetVector, curVector);
+	double angle = 0;
+	if (crossResult->getZ() > 0.0f) {
+		angle += acos(cosAngle) * 180.0 / PI;
+	}
+	else if (crossResult->getZ() < 0.0f) {
+		angle -= acos(cosAngle) * 180.0 / PI;
+	}
+
+	transformAngle(angle);
 }
