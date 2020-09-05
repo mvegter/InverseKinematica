@@ -9,6 +9,8 @@ int main()
     Phantomx phantomx;
 
     phantomx.moveTo(new Position(10, 20));
+    // phantomx.moveTo(new Position(20, 10));
+    // phantomx.moveTo(new Position(30, 0));
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
