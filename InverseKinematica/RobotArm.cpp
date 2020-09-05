@@ -9,6 +9,9 @@ void RobotArm::printSegments() {
 		ArmSegment* segment = m_segments[i];
 
 		std::cout << "Segment #" << i + 1 << "\n";
+		std::cout << "  Distance: " << segment->getPosition()->distanceTo(segment->getBasePosition()) << "\n";
+		std::cout << "  Angle: " << segment->getAngle() << "\n";
+		std::cout << "  Length: " << segment->getLength() << "\n";
 		std::cout << "  Base:" << "\n";
 		std::cout << "    Position X: " << segment->getBasePosition()->getX() << "\n";
 		std::cout << "    Position Y: " << segment->getBasePosition()->getY() << "\n";
@@ -34,7 +37,7 @@ void RobotArm::moveTo(Position* targetPosition) {
 	printSegments();
 
 	int i = m_segments.size();
-	while (++runs < 10 && getLastSegment()->getPosition()->distanceTo(targetPosition) > 0) {
+	while (++runs < 100000 && getLastSegment()->getPosition()->distanceTo(targetPosition) > 0.1) {
 		if (--i < 0) {
 			i = m_segments.size() - 1;
 		}

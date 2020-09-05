@@ -1,6 +1,8 @@
 #include <math.h>
 #include "ArmSegment.h"
 
+#define PI 3.14159265
+
 ArmSegment::ArmSegment(ArmSegment* base, double length, double angle) {
 	m_base = base;
 	m_length = length;
@@ -68,5 +70,17 @@ Position* CrossProduct(Position* pos1, Position* pos2) {
 }
 
 void ArmSegment::moveTo(Position* targetPosition, Position* clawPosition) {
-	// TODO: implement
+	Position* curVector = clawPosition->subtract(getBasePosition())->normalize();
+	Position* targetVector = targetPosition->subtract(getBasePosition())->normalize();
+
+	double cosAngle = DotProduct(targetVector, curVector);
+	if (cosAngle < 0.99999) {
+		Position* crossResult = CrossProduct(targetVector, curVector);
+		if (crossResult->getZ() > 0.0f) {
+			m_angle += acos(cosAngle) * 180.0 / PI;
+		}
+		else if (crossResult->getZ() < 0.0f) {
+			m_angle -= acos(cosAngle) * 180.0 / PI;
+		}
+	}
 }
