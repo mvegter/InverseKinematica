@@ -59,4 +59,20 @@ public:
 	/// </summary>
 	/// <returns></returns>
 	Position* normalize();
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="pos1"></param>
+	/// <param name="pos2"></param>
+	/// <returns></returns>
+	static double DotProduct(Position* pos1, Position* pos2);
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="pos1"></param>
+	/// <param name="pos2"></param>
+	/// <returns></returns>
+	static Position* CrossProduct(Position* pos1, Position* pos2);
 };
