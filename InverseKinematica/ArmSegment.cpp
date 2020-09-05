@@ -57,6 +57,16 @@ double ArmSegment::getY() {
 	return getPosition()->getY();
 }
 
+double DotProduct(Position* pos1, Position* pos2) {
+	return pos1->getX() * pos2->getX() + pos1->getY() * pos2->getY() + pos1->getZ() * pos2->getZ();
+}
+
+Position* CrossProduct(Position* pos1, Position* pos2) {
+	return new Position(pos1->getY() * pos2->getZ() - pos1->getZ() * pos2->getY(),
+		pos1->getZ() * pos2->getX() - pos1->getX() * pos2->getZ(),
+		pos1->getX() * pos2->getY() - pos1->getY() * pos2->getX());
+}
+
 void ArmSegment::moveTo(Position* targetPosition, Position* clawPosition) {
 	// TODO: implement
 }
