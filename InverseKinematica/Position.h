@@ -53,10 +53,4 @@ public:
 	/// <param name="otherPosition"></param>
 	/// <returns></returns>
 	Position* subtract(Position* otherPosition);
-
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <returns></returns>
-	Position* normalize();
 };

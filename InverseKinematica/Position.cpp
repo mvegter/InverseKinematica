@@ -36,14 +36,3 @@ Position* Position::subtract(Position* otherPosition) {
 		getY() - otherPosition->getY(),
 		getZ() - otherPosition->getZ());
 }
-
-Position* Position::normalize() {
-	float len = sqrt(getX() * getX() + getY() * getY() + getZ() * getZ());
-
-	if (len != 0.)
-	{
-		return new Position(getX() / len, getY() / len, getZ() / len);
-	}
-
-	return new Position(getX(), getY(), getZ());
-}
