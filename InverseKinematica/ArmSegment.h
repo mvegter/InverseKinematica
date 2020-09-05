@@ -19,12 +19,6 @@ protected:
 	/// 
 	/// </summary>
 	/// <returns></returns>
-	Position* getBasePosition();
-
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <returns></returns>
 	double getTotalAngle();
 
 public:
@@ -41,6 +35,12 @@ public:
 	/// </summary>
 	/// <returns></returns>
 	Position* getPosition();
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
+	Position* getBasePosition();
 
 	/// <summary>
 	/// 

@@ -9,8 +9,14 @@ void RobotArm::printSegments() {
 		ArmSegment* segment = m_segments[i];
 
 		std::cout << "Segment #" << i + 1 << "\n";
-		std::cout << "  Position X: " << segment->getX() << "\n";
-		std::cout << "  Position Y: " << segment->getY() << "\n";
+		std::cout << "  Base:" << "\n";
+		std::cout << "    Position X: " << segment->getBasePosition()->getX() << "\n";
+		std::cout << "    Position Y: " << segment->getBasePosition()->getY() << "\n";
+		std::cout << "    Position Z: " << segment->getBasePosition()->getZ() << "\n";
+		std::cout << "  Hand:" << "\n";
+		std::cout << "    Position X: " << segment->getPosition()->getX() << "\n";
+		std::cout << "    Position Y: " << segment->getPosition()->getY() << "\n";
+		std::cout << "    Position Z: " << segment->getPosition()->getZ() << "\n";
 		std::cout << "\n";
 	}
 }
