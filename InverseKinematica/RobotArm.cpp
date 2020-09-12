@@ -45,7 +45,7 @@ void RobotArm::moveTo(Position* targetPosition) {
 		m_segments[i]->moveTo(targetPosition, getLastSegment()->getPosition());
 	}
 
-	std::cout << "Run #" << runs << "\n";
+	std::cout << "Run #" << runs - 1 << "\n";
 	std::cout << "  Distance: " << getLastSegment()->getPosition()->distanceTo(targetPosition) << "\n";
 	std::cout << "\n";
 	printSegments();
